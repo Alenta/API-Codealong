@@ -51,9 +51,9 @@ class Movie
     private static int _id = 0;
     public int ID {get; set;}
     public string Title {get; set;}
-    public Movie(string newTitle)
+    public Movie(string title)
     {
-        Title = newTitle;
+        Title = title;
         ID = _id++;
     }
     
