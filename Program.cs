@@ -25,8 +25,20 @@ internal class Program
         });
 
 
-        //DELETE: Deletea movie by ID
-        app.MapDelete("/Movies/{id}", (int id) => $"Delete movie with id: {id}");
+        //DELETE: Delete movie by ID
+        //app.MapDelete("/Movies/{id}", (int id) => $"Delete movie with id: {id}");
+        app.MapDelete("/Movies/{id}", (int id) => 
+        { 
+            /*
+            if(movie == null){
+                return Results.BadRequest();
+            }
+            
+            movies.Add(movie);
+
+            return Results.Created();
+            */
+        });
 
         //UPDATE:Update a Movie by ID
         app.MapPut("/Movies/{id}", (int id) => $"Update Movie with ID: {id}");
@@ -39,10 +51,13 @@ internal class Program
 
 class Movie
 {
+    private static int _id = 0;
+    public int ID {get; set;}
     public string Title {get; set;}
     public Movie(string newTitle)
     {
         Title = newTitle;
+        ID = _id++;
     }
     
 }
